@@ -20,10 +20,10 @@ if __name__ == '__main__':
     account = base.get_account()
     que_name = 'testqueue'
     print('starting %s' % dt.datetime.now().strftime('%d-%m-%Y %H:%M'))
-    while True:
-        try:
+    try:
+        while True:
             print('Dequeue')
             az_queue.dequeue(account, que_name, callback)
             sleep(5)
-        except KeyboardInterrupt:
-            print('Queue Interrupted by user')
+    except KeyboardInterrupt:
+        print('Interupted by user')
